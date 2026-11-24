@@ -7,6 +7,34 @@ A Chrome extension that shows Persian YouTube subtitles written in **Finglish** 
 - Save words to a practice list, then review them with spaced-repetition flashcards.
 - Works offline. Online dictionary lookup is optional and only runs when you ask for it.
 
+## Screenshots
+
+Finglish subtitles over a YouTube video:
+
+<img src="screenshots/overview.png" width="700" alt="Finglish subtitles shown over a YouTube video, above the native captions">
+
+<br />
+
+Tap a word to see its meaning:
+
+<img src="screenshots/translate.png" width="350" alt="Word card showing the English translation of a tapped Finglish word">
+
+<br />
+
+Save it to your practice list:
+
+<img src="screenshots/saved-word.png" width="400" alt="Confirmation that a word has been saved to the practice list">
+
+<br />
+
+Review your practice list with flashcards:
+
+<img src="screenshots/flashcard-hidden.png" width="400" alt="Flashcard with the answer hidden">
+
+<br />
+
+<img src="screenshots/flashcard-revealed.png" width="400" alt="Flashcard with the answer revealed">
+
 ## Install
 
 1. Download and unzip `finglish-subs.zip`.
@@ -17,14 +45,14 @@ A Chrome extension that shows Persian YouTube subtitles written in **Finglish** 
 
 ## Using it
 
-| What | How |
-| --- | --- |
-| Show or hide Finglish | Alt+F on YouTube, or the switch in the toolbar popup |
-| Change text size | Slider in the popup |
-| See a word's meaning | Tap a Finglish word; the video pauses |
+| What                  | How                                                       |
+| --------------------- | --------------------------------------------------------- |
+| Show or hide Finglish | Alt+F on YouTube, or the switch in the toolbar popup      |
+| Change text size      | Slider in the popup                                       |
+| See a word's meaning  | Tap a Finglish word; the video pauses                     |
 | Look up a word online | Tap "Look up meaning online" on the card (off by default) |
-| Save a word | "Save to practice list" on the card |
-| Practise | Popup > "Practice words" |
+| Save a word           | "Save to practice list" on the card                       |
+| Practise              | Popup > "Practice words"                                  |
 
 Words with a dotted underline are spelled by a rule rather than from the built-in list, so the spelling is a best guess.
 
