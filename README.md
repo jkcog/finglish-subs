@@ -1,6 +1,6 @@
 # Finglish Subs
 
-A Chrome extension that shows Persian YouTube subtitles written in **Finglish** (Persian spoken words in Latin letters), so you can read along while learning Persian script.
+A Chrome extension that shows Persian YouTube subtitles written in **Finglish** (Persian words in Latin letters), so you can read along while learning Persian script.
 
 - Finglish appears on top of the video, above YouTube's own captions.
 - Tap any Finglish word to see its English meaning, and pause the video while you do.
