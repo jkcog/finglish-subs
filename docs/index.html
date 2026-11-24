@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Finglish Subs</title>
+<style>
+  :root {
+    --bg: #ffffff;
+    --fg: #1a202c;
+    --muted: #4a5568;
+    --accent: #2b6cb0;
+    --accent-dark: #1a365d;
+    --card: #f7fafc;
+    --border: #e2e8f0;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #15202b;
+      --fg: #e6edf3;
+      --muted: #9aa7b2;
+      --accent: #5b9bd5;
+      --accent-dark: #ffe066;
+      --card: #1c2a38;
+      --border: #2d3c4b;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+  }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 20px 80px; }
+  header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 40px 0 10px;
+  }
+  header img { width: 56px; height: 56px; border-radius: 12px; }
+  h1 { font-size: 1.6rem; margin: 0; }
+  .tagline { color: var(--muted); margin: 4px 0 0; }
+  .cta {
+    display: inline-block;
+    margin: 22px 0 36px;
+    padding: 10px 20px;
+    background: var(--accent);
+    color: #fff;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .cta:hover { background: var(--accent-dark); }
+  h2 {
+    font-size: 1.15rem;
+    margin-top: 48px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 8px;
+  }
+  .shots {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin: 18px 0;
+  }
+  .shots img {
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    display: block;
+  }
+  .shots figure { margin: 0; }
+  figcaption { font-size: 0.85rem; color: var(--muted); margin-top: 6px; text-align: center; }
+  table { width: 100%; border-collapse: collapse; margin: 16px 0; }
+  td, th { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border); }
+  code { background: var(--card); padding: 2px 6px; border-radius: 4px; font-size: 0.9em; }
+  footer { margin-top: 60px; color: var(--muted); font-size: 0.9rem; }
+  a { color: var(--accent); }
+  ul { padding-left: 22px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <img src="icon.svg" alt="Finglish Subs icon">
+    <div>
+      <h1>Finglish Subs</h1>
+      <p class="tagline">Read along with Persian YouTube captions, spelled out in Latin letters.</p>
+    </div>
+  </header>
+
+  <p>
+    Finglish Subs is a browser extension for Chrome, Edge and Brave. It shows Persian YouTube
+    subtitles transliterated into <strong>Finglish</strong> (Persian spoken words written with Latin
+    letters), with tap-a-word meanings and a built-in practice list, so you can follow along and
+    build vocabulary without needing to read Persian script yet.
+  </p>
+
+  <a class="cta" href="https://chrome.google.com/webstore/detail/REPLACE_WITH_STORE_ID">Get it from the Chrome Web Store</a>
+
+  <h2>What it does</h2>
+  <ul>
+    <li>Shows Finglish subtitles on top of the video, above YouTube's own captions.</li>
+    <li>Tap any Finglish word to see its English meaning (the video pauses while you look).</li>
+    <li>Save words to a practice list, then review them with spaced-repetition flashcards.</li>
+    <li>Works offline. Online dictionary lookup is optional and only runs when you ask for it.</li>
+  </ul>
+
+  <h2>Screenshots</h2>
+  <div class="shots">
+    <figure>
+      <img src="screenshots/overview.png" alt="Finglish subtitles shown over a YouTube video, above the native captions">
+      <figcaption>Finglish subtitles over a YouTube video</figcaption>
+    </figure>
+    <figure>
+      <img src="screenshots/translate.png" alt="Word card showing the English translation of a tapped Finglish word">
+      <figcaption>Tap a word to see its meaning</figcaption>
+    </figure>
+    <figure>
+      <img src="screenshots/saved-word.png" alt="Confirmation that a word has been saved to the practice list">
+      <figcaption>Save it to your practice list</figcaption>
+    </figure>
+    <figure>
+      <img src="screenshots/flashcard-revealed.png" alt="Flashcard with the answer revealed">
+      <figcaption>Review with flashcards</figcaption>
+    </figure>
+  </div>
+
+  <h2>Using it</h2>
+  <table>
+    <tr><th>What</th><th>How</th></tr>
+    <tr><td>Show or hide Finglish</td><td><code>Alt+F</code> on YouTube, or the switch in the toolbar popup</td></tr>
+    <tr><td>Change text size</td><td>Slider in the popup</td></tr>
+    <tr><td>See a word's meaning</td><td>Tap a Finglish word; the video pauses</td></tr>
+    <tr><td>Look up a word online</td><td>Tap "Look up meaning online" on the card (off by default)</td></tr>
+    <tr><td>Save a word</td><td>"Save to practice list" on the card</td></tr>
+    <tr><td>Practise</td><td>Popup &gt; "Practice words"</td></tr>
+  </table>
+
+  <h2>Limits</h2>
+  <ul>
+    <li>Only works on youtube.com, and only for videos with Persian captions.</li>
+    <li>Finglish has no single standard spelling, so spellings are one reasonable choice, not the only one.</li>
+    <li>Built-in meanings cover about 360 common words and about 40 verbs. Other words use spelling rules or the online lookup.</li>
+  </ul>
+
+  <h2 id="privacy">Privacy policy</h2>
+  <p><em>Last updated: 24 November 2026</em></p>
+
+  <p><strong>What is stored.</strong> Your settings (on/off, text size, auto-lookup) and your practice
+  list (words you saved, with their meanings, the sentence they came from, and the YouTube video ID
+  and time) are kept in Chrome's local extension storage on your device. A small cache of caption
+  data for recently watched videos is kept there too (up to 30 videos).</p>
+
+  <p><strong>What is sent.</strong> The extension does not send data to the developer or to any
+  analytics service.</p>
+  <ul>
+    <li>It requests caption text from YouTube, the same as the YouTube page does, so it can show subtitles.</li>
+    <li>If you tap "Look up meaning online", or turn on auto-lookup, it sends the single Persian word
+    involved to <a href="https://en.wiktionary.org/">en.wiktionary.org</a> to fetch a definition.
+    Wiktionary's own privacy policy then applies.</li>
+  </ul>
+
+  <p><strong>What is not collected.</strong> No account, no name, no email, no browsing history, no analytics.</p>
+
+  <p><strong>Deleting data.</strong> Remove the extension in <code>chrome://extensions</code> to delete
+  everything it stored. You can delete individual saved words from the practice page.</p>
+
+  <p><strong>Contact.</strong> <a href="https://github.com/jkcog/finglish-subs">github.com/jkcog/finglish-subs</a></p>
+
+  <footer>
+    Source code and issue tracker: <a href="https://github.com/jkcog/finglish-subs">github.com/jkcog/finglish-subs</a>
+  </footer>
+
+</div>
+</body>
+</html>
