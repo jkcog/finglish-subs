@@ -1,0 +1,79 @@
+.fg-overlay {
+  position: absolute;
+  left: 50%;
+  bottom: 60px;
+  transform: translateX(-50%);
+  max-width: 80%;
+  text-align: center;
+  z-index: 60;
+  pointer-events: none;
+  display: none;
+  --fg-size: 20px;
+}
+.fg-overlay.fg-on { display: block; }
+.fg-fin, .fg-fa {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 3px;
+  background: rgba(8, 8, 8, 0.78);
+  line-height: 1.35;
+}
+.fg-fin {
+  color: #ffe066;
+  font: 500 var(--fg-size)/1.35 Roboto, "YouTube Noto", Arial, sans-serif;
+}
+.fg-fa {
+  display: block;
+  margin-bottom: 2px;
+  color: #fff;
+  direction: rtl;
+  font: 400 calc(var(--fg-size) * 0.95)/1.35 Roboto, "YouTube Noto", Arial, sans-serif;
+}
+.fg-fa[hidden] { display: none; }
+
+/* clickable words */
+.fg-word {
+  pointer-events: auto;
+  cursor: pointer;
+  border-radius: 3px;
+}
+.fg-word:hover { background: rgba(255, 255, 255, 0.22); }
+.fg-guess { border-bottom: 1px dotted rgba(255, 224, 102, 0.8); } /* spelling is a guess */
+.fg-saved { color: #9be58f; }
+
+/* word card */
+.fg-card {
+  position: absolute;
+  left: 50%;
+  top: 8%;
+  transform: translateX(-50%);
+  width: min(360px, 90%);
+  box-sizing: border-box;
+  padding: 12px;
+  z-index: 62;
+  background: #181818;
+  color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.6);
+  font: 14px/1.4 Roboto, Arial, sans-serif;
+  cursor: default;
+  text-align: left;
+}
+.fg-card-head { display: flex; align-items: baseline; gap: 10px; }
+.fg-card-fi { color: #ffe066; font-size: 20px; font-weight: 600; }
+.fg-card-fa { flex: 1; font-size: 22px; text-align: right; }
+.fg-card-x, .fg-card-save, .fg-card-opt {
+  font: inherit; color: #fff; background: #303030; border: 0; border-radius: 6px;
+  padding: 5px 10px; cursor: pointer;
+}
+.fg-card-x:hover, .fg-card-save:hover, .fg-card-opt:hover { background: #444; }
+.fg-card-input {
+  box-sizing: border-box; width: 100%; margin-top: 10px; padding: 7px 9px;
+  font: inherit; color: #fff; background: #0f0f0f; border: 1px solid #444; border-radius: 6px;
+}
+.fg-card-status { margin-top: 6px; color: #aaa; font-size: 12px; }
+.fg-card-results { display: flex; flex-direction: column; gap: 4px; margin-top: 4px; }
+.fg-card-opt { text-align: left; font-size: 13px; }
+.fg-card-ctx { margin-top: 10px; color: #bbb; font-size: 13px; text-align: right; }
+.fg-card-save { width: 100%; margin-top: 10px; padding: 8px; }
+.fg-card-save.fg-saved-btn { background: #2d5a2a; }

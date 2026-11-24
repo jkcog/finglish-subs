@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body { font: 14px system-ui, sans-serif; width: 270px; margin: 12px; }
+    label { display: flex; align-items: center; justify-content: space-between; margin: 10px 0; gap: 8px; }
+    small { color: #666; display: block; margin-top: 4px; }
+    button { width: 100%; padding: 8px; margin-top: 10px; font: inherit; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <label><span>Show Finglish</span><input type="checkbox" id="enabled"></label>
+  <label><span>Size <span id="sizeVal"></span>px</span><input type="range" id="fontSize" min="14" max="36" step="1"></label>
+  <label><span>Auto-look up unknown words online</span><input type="checkbox" id="lookup"></label>
+  <small>Off by default: you get a "Look up online" button on the word card instead. When on, tapped words not in the built-in list are sent to en.wiktionary.org automatically.</small>
+  <button id="practice">Practice words</button>
+  <small>On YouTube: Alt+F toggles Finglish. Tap any Finglish word for its meaning.</small>
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+{
+  "manifest_version": 3,
+  "name": "Finglish Subs",
+  "version": "0.3.1",
+  "description": "Shows Persian YouTube subtitles transliterated into Finglish, with tap-a-word meanings and a practice list.",
+  "permissions": [
+    "storage"
+  ],
+  "host_permissions": [
+    "https://en.wiktionary.org/*"
+  ],
+  "background": {
+    "service_worker": "src/background.js"
+  },
+  "action": {
+    "default_title": "Finglish Subs",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.youtube.com/*"
+      ],
+      "js": [
+        "src/bridge.js"
+      ],
+      "world": "MAIN",
+      "run_at": "document_start"
+    },
+    {
+      "matches": [
+        "https://www.youtube.com/*"
+      ],
+      "js": [
+        "src/lexicon.js",
+        "src/verbs.js",
+        "src/translit.js",
+        "src/content.js"
+      ],
+      "css": [
+        "src/overlay.css"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}
