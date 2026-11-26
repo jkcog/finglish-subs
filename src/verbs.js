@@ -48,11 +48,15 @@
     { inf: 'bakhshidan', enInf: 'forgive', en: ['forgive', 'forgives', 'forgave', 'forgiven'], past: [['بخشید', 'bakhsheed']], formal: [['بخش', 'bakhsh']], coll: [['بخش', 'bakhsh']], imp: ['بخش', 'bebakhsh', 'bakhsh'] },
   ];
 
-  // Endings: [persian, finglish, who, thirdPerson]
-  const E_PRES_FORMAL = [['م', 'am', 'I'], ['ی', 'i', 'you'], ['د', 'ad', 'he/she', 1], ['یم', 'im', 'we'], ['ید', 'id', 'you (pl.)'], ['ند', 'and', 'they']];
-  const E_PRES_COLL_C = [['م', 'am', 'I'], ['ی', 'i', 'you'], ['ه', 'eh', 'he/she', 1], ['یم', 'im', 'we'], ['ید', 'id', 'you (pl.)'], ['ن', 'an', 'they']];
+  // Endings: [persian, finglish, who, thirdPerson]. The 2sg/1pl/2pl endings
+  // (ی/یم/ید) spell a real long ī, so they're "ee"/"eem"/"eed" here, matching
+  // persian-core's own convention (konī -> konee) - E_PRES_COLL_V is the
+  // exception: its ی is a glide after a vowel-final stem (mikhāy -> mikhay),
+  // not an independent vowel, so it stays a bare 'y'.
+  const E_PRES_FORMAL = [['م', 'am', 'I'], ['ی', 'ee', 'you'], ['د', 'ad', 'he/she', 1], ['یم', 'eem', 'we'], ['ید', 'eed', 'you (pl.)'], ['ند', 'and', 'they']];
+  const E_PRES_COLL_C = [['م', 'am', 'I'], ['ی', 'ee', 'you'], ['ه', 'eh', 'he/she', 1], ['یم', 'eem', 'we'], ['ید', 'eed', 'you (pl.)'], ['ن', 'an', 'they']];
   const E_PRES_COLL_V = [['م', 'm', 'I'], ['ی', 'y', 'you'], ['د', 'd', 'he/she', 1], ['یم', 'ym', 'we'], ['ید', 'yd', 'you (pl.)'], ['ن', 'n', 'they']];
-  const E_PAST = [['م', 'am', 'I'], ['ی', 'i', 'you'], ['', '', 'he/she', 1], ['یم', 'im', 'we'], ['ید', 'id', 'you (pl.)'], ['ند', 'and', 'they'], ['ن', 'an', 'they']];
+  const E_PAST = [['م', 'am', 'I'], ['ی', 'ee', 'you'], ['', '', 'he/she', 1], ['یم', 'eem', 'we'], ['ید', 'eed', 'you (pl.)'], ['ند', 'and', 'they'], ['ن', 'an', 'they']];
 
   const map = new Map();
   const put = (fa, fi, gloss) => {
