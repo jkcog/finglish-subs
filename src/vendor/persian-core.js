@@ -1,5 +1,5 @@
 // Vendored build of github.com/jkcog/persian-core (dist/persian-core.global.js),
-// commit 6a61e77. Shared lexicon/transliteration logic also used by noghteh and
+// commit dc7bdc3. Shared lexicon/transliteration logic also used by noghteh and
 // harf-bezan. Do not hand-edit: regenerate with `npm run build` in that repo and
 // copy dist/persian-core.global.js here.
 var PersianCore = (() => {
@@ -1039,7 +1039,7 @@ var PersianCore = (() => {
     },
     {
       persian: "\u0628\u062E\u0648\u0631",
-      canonical: "bokh\u016Br",
+      canonical: "bokhor",
       register: "formal",
       pos: "other",
       gloss: "eat!",
@@ -1075,7 +1075,7 @@ var PersianCore = (() => {
     },
     {
       persian: "\u0628\u062E\u0648\u0631\u0646",
-      canonical: "bokh\u016Bran",
+      canonical: "bokhoran",
       register: "colloquial",
       pos: "verb",
       gloss: "'to' (subjunctive) + eat + they",
@@ -1103,7 +1103,7 @@ var PersianCore = (() => {
     },
     {
       persian: "\u0628\u062E\u0648\u0631\u0647",
-      canonical: "bokh\u016Breh",
+      canonical: "bokhoreh",
       register: "colloquial",
       pos: "verb",
       gloss: "'to' (subjunctive) + eat + he/she",
@@ -1131,7 +1131,7 @@ var PersianCore = (() => {
     },
     {
       persian: "\u0628\u062E\u0648\u0631\u06CC",
-      canonical: "bokh\u016Br\u012B",
+      canonical: "bokhor\u012B",
       register: "colloquial",
       pos: "verb",
       gloss: "(that) you eat",
@@ -1159,7 +1159,7 @@ var PersianCore = (() => {
     },
     {
       persian: "\u0628\u062E\u0648\u0631\u06CC\u0645",
-      canonical: "bokh\u016Br\u012Bm",
+      canonical: "bokhor\u012Bm",
       register: "colloquial",
       pos: "verb",
       gloss: "'to' (subjunctive) + eat + we",
@@ -2952,7 +2952,7 @@ var PersianCore = (() => {
     },
     {
       persian: "\u062E\u0648\u0631\u062F",
-      canonical: "kh\u016Brd",
+      canonical: "khord",
       register: "formal",
       pos: "other",
       gloss: "ate",
@@ -2960,7 +2960,7 @@ var PersianCore = (() => {
     },
     {
       persian: "\u062E\u0648\u0631\u062F\u0645",
-      canonical: "kh\u016Brdam",
+      canonical: "khordam",
       register: "colloquial",
       pos: "verb",
       gloss: "I ate",
@@ -2983,7 +2983,7 @@ var PersianCore = (() => {
     },
     {
       persian: "\u062E\u0648\u0631\u062F\u0646",
-      canonical: "kh\u016Brdan",
+      canonical: "khordan",
       register: "formal",
       pos: "verb",
       gloss: "to eat/drink",
@@ -6116,7 +6116,7 @@ var PersianCore = (() => {
     },
     {
       persian: "\u0645\u06CC\u200C\u062E\u0648\u0631\u0645",
-      canonical: "m\u012Bkh\u016Bram",
+      canonical: "m\u012Bkhoram",
       register: "colloquial",
       pos: "verb",
       gloss: "I eat / I'm eating",
@@ -6357,7 +6357,7 @@ var PersianCore = (() => {
     },
     {
       persian: "\u0646\u062E\u0648\u0631\u062F\u0645",
-      canonical: "nakh\u016Brdam",
+      canonical: "nakhordam",
       register: "colloquial",
       pos: "verb",
       gloss: "not + ate (past stem) + I",
@@ -6923,7 +6923,7 @@ var PersianCore = (() => {
     },
     {
       persian: "\u0646\u0645\u06CC\u200C\u062E\u0648\u0631\u0645",
-      canonical: "nem\u012Bkh\u016Bram",
+      canonical: "nem\u012Bkhoram",
       register: "colloquial",
       pos: "verb",
       gloss: "I don't eat / I'm not eating",
