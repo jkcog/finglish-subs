@@ -5,7 +5,7 @@
 (() => {
   'use strict';
   const T = globalThis.PersianTranslit;
-  const LEXG = globalThis.PersianLexicon.gloss;
+  const glossOf = (fa) => T.wordInfo(fa).gloss;
   const DEFAULTS = { enabled: true, fontSize: 20, autoLookup: false };
   const CACHE_MAX = 30;
   const WORDS_KEY = 'fg:words';
@@ -206,9 +206,9 @@
 
     const input = el('input', 'fg-card-input');
     input.placeholder = 'Meaning (type your own)';
-    let prefill = (saved[fa] && saved[fa].gloss) || tokenGloss || LEXG[fa] || '';
+    let prefill = (saved[fa] && saved[fa].gloss) || tokenGloss || glossOf(fa) || '';
     if (!prefill && fa.includes(ZWNJ)) {
-      const parts = fa.split(ZWNJ).filter(Boolean).map((p) => LEXG[p]);
+      const parts = fa.split(ZWNJ).filter(Boolean).map(glossOf);
       if (parts.every(Boolean)) prefill = parts.join(' + ');
     }
     input.value = prefill;

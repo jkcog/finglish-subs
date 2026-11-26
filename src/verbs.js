@@ -2,6 +2,7 @@
 // (present formal + colloquial, past, imperfect, subjunctive, imperative, negatives).
 // To add a verb, append one entry to VERBS. Forms are keyed WITHOUT ZWNJ (lookup strips it).
 (function (root) {
+  const PC = root.PersianCore || { subjunctivePrefix: () => 'be' }; // no global PersianCore outside the extension (e.g. under Node)
   // fa/fi pairs are [persian, finglish]. en = [base, 3rd-person, past, participle].
   // imp = [persian stem after ب/ن, positive imperative finglish, finglish stem for the negative].
   const VERBS = [
@@ -13,8 +14,8 @@
     { inf: 'dadan', en: ['give', 'gives', 'gave', 'given'], past: [['داد', 'dad']], formal: [['ده', 'dah']], coll: [['د', 'd']], imp: ['ده', 'bedeh', 'deh'] },
     { inf: 'gereftan', en: ['take', 'takes', 'took', 'taken'], past: [['گرفت', 'gereft']], formal: [['گیر', 'gir']], coll: [['گیر', 'gir']], imp: ['گیر', 'begir', 'gir'] },
     { inf: 'shodan', enInf: 'become', en: ['become', 'becomes', 'became', 'become'], past: [['شد', 'shod']], formal: [['شو', 'shav']], coll: [['ش', 'sh']], imp: ['شو', 'besho', 'sho'] },
-    { inf: 'khordan', enInf: 'eat/drink', en: ['eat', 'eats', 'ate', 'eaten'], past: [['خورد', 'khord']], formal: [['خور', 'khor']], coll: [['خور', 'khor']], imp: ['خور', 'bekhor', 'khor'] },
-    { inf: 'kardan', enInf: 'do/make', en: ['do', 'does', 'did', 'done'], past: [['کرد', 'kard']], formal: [['کن', 'kon']], coll: [['کن', 'kon']], imp: ['کن', 'bekon', 'kon'] },
+    { inf: 'khordan', enInf: 'eat/drink', en: ['eat', 'eats', 'ate', 'eaten'], past: [['خورد', 'khord']], formal: [['خور', 'khor']], coll: [['خور', 'khor']], imp: ['خور', 'bokhor', 'khor'] },
+    { inf: 'kardan', enInf: 'do/make', en: ['do', 'does', 'did', 'done'], past: [['کرد', 'kard']], formal: [['کن', 'kon']], coll: [['کن', 'kon']], imp: ['کن', 'bokon', 'kon'] },
     { inf: 'danestan', enInf: 'know', en: ['know', 'knows', 'knew', 'known'], past: [['دانست', 'danest'], ['دونست', 'doonest']], formal: [['دان', 'dan']], coll: [['دون', 'doon']], imp: ['دان', 'bedan', 'dan'] },
     { inf: 'tavanestan', enInf: 'be able', en: ['can', 'can', 'could', 'been able'], negPres: "can't", negPast: "couldn't", past: [['توانست', 'tavanest'], ['تونست', 'toonest']], formal: [['توان', 'tavan']], coll: [['تون', 'toon']] },
     { inf: 'dashtan', enInf: 'have', en: ['have', 'has', 'had', 'had'], past: [['داشت', 'dasht']], formal: [], coll: [] },
@@ -71,12 +72,13 @@
       ...v.coll.map(([fa, fi]) => [fa, fi, /[aeiou]$/.test(fi) ? E_PRES_COLL_V : E_PRES_COLL_C]),
     ];
     for (const [sfa, sfi, ends] of stems) {
+      const bePrefix = PC.subjunctivePrefix(sfi); // 'be' or 'bo' (بکنم vs بخورم) - see persian-core
       for (const [efa, efi, who, isThird] of ends) {
         const fa = sfa + efa;
         const fi = sfi + efi;
         put('می' + fa, 'mi-' + fi, `${who} ${presVerb(isThird, false)}${tag}`);
         put('نمی' + fa, 'nemi-' + fi, `${who} ${presVerb(isThird, true)}${tag}`);
-        put('ب' + fa, 'be' + fi, `(that) ${who} ${presVerb(false, false)}${tag}`);
+        put('ب' + fa, bePrefix + fi, `(that) ${who} ${presVerb(false, false)}${tag}`);
         put('ن' + fa, 'na' + fi, `(that) ${who} ${presVerb(false, true)}${tag}`);
       }
     }

@@ -1,10 +1,21 @@
 // Persian script -> Finglish. Offline: lexicon lookup first, then rule-based fallback.
 (function (root) {
   const isNode = typeof module === 'object' && module.exports;
-  const LEXICON = isNode ? require('./lexicon.js') : root.PersianLexicon;
-  const LEX = LEXICON.map;
-  const LEXG = LEXICON.gloss;
   const VERBS = isNode ? require('./verbs.js') : root.PersianVerbs;
+  const PC = root.PersianCore || { lookup: () => [], toAscii: (s) => s }; // no global PersianCore outside the extension (e.g. under Node)
+
+  // Looks up a word in persian-core's shared lexicon and picks one entry.
+  // Subtitles are spoken Persian, so prefer a colloquial entry over a formal
+  // one; among same-register homographs (بره = lamb vs. "goes") prefer a
+  // non-verb reading, since conjugated verb forms are handled by VERBS above.
+  function lexEntry(w) {
+    const entries = PC.lookup(w);
+    if (!entries.length) return null;
+    const colloquial = entries.filter((e) => e.register === 'colloquial');
+    const pool = colloquial.length ? colloquial : entries;
+    const nonVerb = pool.filter((e) => e.pos !== 'verb');
+    return nonVerb[0] || pool[0];
+  }
 
   // Possessive / plural suffixes, tried (longest first) only on stems that are in the lexicon.
   const SUFFIXES = [
@@ -94,9 +105,16 @@
   function wordInfo(w) {
     w = w.replace(/^\u200c+|\u200c+$/g, '');
     if (!w) return { fi: '', known: true };
-    if (LEX[w]) return { fi: LEX[w], known: true, gloss: LEXG[w] };
 
-    // Conjugated verbs (generated from stems), with or without ZWNJ
+    // Lexicon first: verbs.js's generator sometimes collides with a far more
+    // common non-verb word of the same spelling (باید "must" happens to also
+    // be amadan's generated "(that) you all come") - the lexicon's explicit
+    // entries pre-empt those collisions, same as finglish-subs' own lexicon
+    // always did.
+    const entry = lexEntry(w);
+    if (entry) return { fi: PC.toAscii(entry.canonical), known: true, gloss: entry.gloss };
+
+    // Conjugated verbs (generated from stems), with or without ZWNJ.
     const verb = VERBS.lookup(w);
     if (verb) return { fi: verb.fi, known: true, gloss: verb.gloss };
 
@@ -111,8 +129,9 @@
     for (const [sfa, sfi, sgl] of SUFFIXES) {
       if (bare.length - sfa.length < 2 || !bare.endsWith(sfa)) continue;
       const stem = bare.slice(0, -sfa.length);
-      if (LEX[stem]) {
-        return { fi: LEX[stem] + '-' + sfi, known: true, gloss: `${LEXG[stem]} + ${sgl}` };
+      const stemEntry = lexEntry(stem);
+      if (stemEntry) {
+        return { fi: PC.toAscii(stemEntry.canonical) + '-' + sfi, known: true, gloss: `${stemEntry.gloss} + ${sgl}` };
       }
     }
 

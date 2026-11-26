@@ -37,7 +37,7 @@
         "https://www.youtube.com/*"
       ],
       "js": [
-        "src/lexicon.js",
+        "src/vendor/persian-core.js",
         "src/verbs.js",
         "src/translit.js",
         "src/content.js"
