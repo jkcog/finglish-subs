@@ -1,5 +1,5 @@
 // Vendored build of github.com/jkcog/persian-core (dist/persian-core.global.js),
-// commit dc7bdc3. Shared lexicon/transliteration logic also used by noghteh and
+// commit 0a31c7b. Shared lexicon/transliteration logic also used by noghteh and
 // harf-bezan. Do not hand-edit: regenerate with `npm run build` in that repo and
 // copy dist/persian-core.global.js here.
 var PersianCore = (() => {
@@ -3342,6 +3342,14 @@ var PersianCore = (() => {
       sources: {
         noghteh: 279
       }
+    },
+    {
+      persian: "\u06A9\u0646\u062F\u0646",
+      canonical: "kandan",
+      register: "formal",
+      pos: "verb",
+      gloss: "to dig/pull/pluck",
+      reviewed: false
     },
     {
       persian: "\u062F\u0648\u063A",
